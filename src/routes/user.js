@@ -3,7 +3,7 @@ const ctrUser = require('../controllers/userController')
 
 const router = Router()
 
-router.route('/search')
+router.route('/search/:username')
 .get(ctrUser.search)
 
 router.route('/analyse')

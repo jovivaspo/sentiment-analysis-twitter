@@ -1,11 +1,15 @@
+const client = require('../services/configTwitter')
 
 const ctrUser = {}
 
 ctrUser.search = async (req,res,next) =>{
     try{
-
+        const username = req.params.username
+        const user = await client.v2.userByUsername(username)
+        console.log(user)
         res.status(200).json({
-            user:"Nobody"
+            name:user.data.name,
+            username:user.data.username
         })
 
     }catch(err){
