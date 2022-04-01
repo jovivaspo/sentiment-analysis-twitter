@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { BsTwitter } from 'react-icons/bs'
+import Search from './Components/Search'
+import Spinner from './Components/Spinner';
+import { useContext } from 'react';
+import { GeneralContext } from './context/GeneralContext';
+
 
 function App() {
+  const {loading} = useContext(GeneralContext)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='titleContainerApp'>
+        <h1 className='titleApp'>Sentiment Anaylisis</h1>
+        <BsTwitter className='titleIcon' />
+      </div>
+      <Search />
+     {loading && <Spinner/>}
     </div>
-  );
+  )
 }
 
 export default App;
