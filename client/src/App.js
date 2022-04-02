@@ -4,6 +4,7 @@ import Search from './Components/Search'
 import Spinner from './Components/Spinner';
 import { useContext } from 'react';
 import { GeneralContext } from './context/GeneralContext';
+import Alert from './Components/Alert';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       </div>
       <Search />
      {loading && <Spinner/>}
+     <Alert/>
     </div>
   )
 }

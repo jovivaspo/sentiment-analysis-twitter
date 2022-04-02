@@ -1,0 +1,19 @@
+.alertContainer{
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 200px;
+    padding-left: 12px;
+    border-radius: 10px;
+
+    transform: translate(200%);
+    transition: all ease-out 0.5s;
+}
+
+.alertTitle{
+    margin-left: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
