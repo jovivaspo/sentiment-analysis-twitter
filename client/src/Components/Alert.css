@@ -1,6 +1,7 @@
 .alertContainer{
     position: absolute;
     bottom: 30px;
+    right: 0px;
     display: flex;
     align-items: center;
     height: 40px;

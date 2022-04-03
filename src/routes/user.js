@@ -6,7 +6,7 @@ const router = Router()
 router.route('/search/:username')
 .get(ctrUser.search)
 
-router.route('/analyse')
+router.route('/analyse/:id')
 .get(ctrUser.analyse)
 
 module.exports = router

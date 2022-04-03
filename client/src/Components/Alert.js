@@ -13,17 +13,17 @@ const Alert = () => {
         warning: '#62AC62'
     }
     useEffect(() => {
-        if(alert.type === '') return false
-        alertRef.current.style.transform = 'translate(100%)'
-        const time = setTimeout(() => {
-            alertRef.current.style.transform = 'translate(200%)'
-            setAlert( {type:'',
-            message:''})
-        }, 3000)
-        return () => {
-            clearTimeout(time)
+       
+        if(alert.type !== '') {
+            alertRef.current.style.transform = 'translate(-10px)'
+            const time = setTimeout(() => {
+                alertRef.current.style.transform = 'translate(200%)'
+                setAlert( {type:'',
+                message:''})
+            }, 3000)
+            return () =>{clearTimeout(time)}
         }
-    }, [alert.type])
+    }, [alert])
 
     return (
         <div ref={alertRef} className='alertContainer' style={{

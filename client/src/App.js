@@ -5,10 +5,11 @@ import Spinner from './Components/Spinner';
 import { useContext } from 'react';
 import { GeneralContext } from './context/GeneralContext';
 import Alert from './Components/Alert';
+import Username from './Components/Username';
 
 
 function App() {
-  const {loading} = useContext(GeneralContext)
+  const {loading,user} = useContext(GeneralContext)
   return (
     <div className="App">
       <div className='titleContainerApp'>
@@ -16,6 +17,7 @@ function App() {
         <BsTwitter className='titleIcon' />
       </div>
       <Search />
+      {user.username && <Username/> }
      {loading && <Spinner/>}
      <Alert/>
     </div>
