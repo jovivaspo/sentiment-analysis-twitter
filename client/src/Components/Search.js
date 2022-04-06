@@ -7,7 +7,7 @@ import { fetchData } from '../services/fetch'
 const Search = () => {
     
     const [search, setSearch] = useState('')
-    const {setLoading, setAlert, setUser} = useContext(GeneralContext)
+    const {setLoading, setAlert, setUser, setTweets} = useContext(GeneralContext)
 
     const handlerSearch = async (e) => {
         try{
@@ -26,6 +26,7 @@ const Search = () => {
                })
                 return false
             }
+            setTweets([])
             //Almacenamos el usuario
             setAlert({
                 type:'info',

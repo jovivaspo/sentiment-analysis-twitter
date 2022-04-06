@@ -1,4 +1,5 @@
 const client = require('../services/configTwitter')
+const calculateDate = require('../services/calculateDate')
 
 const ctrUser = {}
 
@@ -8,7 +9,7 @@ ctrUser.search = async (req, res, next) => {
         const user = await client.v2.userByUsername(username, { 'user.fields': ['created_at', 'profile_image_url', 'public_metrics'] })
         console.log(user)
         res.status(200).json({
-            id:user.data.id,
+            id: user.data.id,
             name: user.data.name,
             username: user.data.username,
             createdAt: user.data.created_at,
@@ -24,16 +25,26 @@ ctrUser.search = async (req, res, next) => {
     }
 }
 
-ctrUser.analyse = async (req, res, next) => {
+ctrUser.tweets = async (req, res, next) => {
     try {
         const id = req.params.id
-        const tweetsOfUserUser = await client.v2.userTimeline(id, { exclude: 'replies' })
+       
+        const {start_time, end_time} = calculateDate(req.params.time)
+
+        //console.log(start_time, end_time)
+
+        const tweetsOfUser = await client.v2.userTimeline(id, {'start_time': start_time.toISOString(), 'end_time':end_time.toISOString()})
+        
         let tweetsUser = []
 
-        for await (const fetchTweetUser of tweetsOfUserUser) {
-            
+        for await (const fetchTweetUser of tweetsOfUser) {
+
+          /*  if(tweetsUser.length >= 30){
+                break
+            }*/
+
             tweetsUser.push(fetchTweetUser.text)
-           
+
         }
 
         console.log("Nº de tweets del usuario: ", tweetsUser.length)

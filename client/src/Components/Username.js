@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { GeneralContext } from '../context/GeneralContext'
+import TweetsContainer from './TweetsContainer'
 import './Username.css'
-import { fetchData } from '../services/fetch'
-import { urls } from '../services/urls'
+
 
 const Username = () => {
-    const { user, setLoading, setAlert, setTweets, tweets } = useContext(GeneralContext)
+    const { user} = useContext(GeneralContext)
     const date = new Date(user.createdAt)
     const months ={
         '1':'Enero',
@@ -24,36 +24,6 @@ const Username = () => {
     const month = date.getUTCMonth()
     const year = date.getFullYear()
 
-    const handlerAnalyse = async (e) => {
-        try{
-           
-            setLoading(true)
-            const data = await fetchData(`${urls(). analyse}/${user.id}`)
-            console.log(data.tweets)
-
-            if(data.error){
-               setAlert({
-                   type:'error',
-                   message:data.error
-               })
-                return false
-            }
-            //Almacenamos el usuario
-            setAlert({
-                type:'info',
-                message:'Analisis completado'
-            })
-
-            setTweets(data.tweets)
-        
-           
-        }catch(err){
-            console.log(err)
-        }finally{
-           
-            setLoading(false)
-        }
-    }
     return (
         <div className='usernameContainer'>
           
@@ -65,7 +35,7 @@ const Username = () => {
                     <span className='metrics'>{user.metrics.following_count} Siguiendo</span>
                     <span  className='metrics'>{user.metrics.followers_count} Seguidores</span>
                 </div>
-                <button className='analyseBotton' onClick={handlerAnalyse}>Analizar</button>
+                <TweetsContainer/>
         </div>
     )
 }
