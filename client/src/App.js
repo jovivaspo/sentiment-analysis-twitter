@@ -6,10 +6,11 @@ import { useContext } from 'react';
 import { GeneralContext } from './context/GeneralContext';
 import Alert from './Components/Alert';
 import Username from './Components/Username';
+import ButtonAnalyse from './Components/ButtonAnalyse';
 
 
 function App() {
-  const {loading,user} = useContext(GeneralContext)
+  const {loading,user,tweets} = useContext(GeneralContext)
   return (
     <div className="App">
       <div className='titleContainerApp'>
@@ -18,6 +19,7 @@ function App() {
       </div>
       <Search />
       {user.username && <Username/> }
+      {tweets.length > 0 && <ButtonAnalyse/>}
      {loading && <Spinner/>}
      <Alert/>
     </div>

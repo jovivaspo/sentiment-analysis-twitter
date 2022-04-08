@@ -33,7 +33,10 @@ ctrUser.tweets = async (req, res, next) => {
 
         //console.log(start_time, end_time)
 
-        const tweetsOfUser = await client.v2.userTimeline(id, {'start_time': start_time.toISOString(), 'end_time':end_time.toISOString()})
+        const tweetsOfUser = await client.v2.userTimeline(id, {
+            'start_time': start_time.toISOString(),
+            'end_time':end_time.toISOString()
+        })
         
         let tweetsUser = []
 
@@ -42,6 +45,7 @@ ctrUser.tweets = async (req, res, next) => {
           /*  if(tweetsUser.length >= 30){
                 break
             }*/
+            console.log(fetchTweetUser)
 
             tweetsUser.push(fetchTweetUser.text)
 

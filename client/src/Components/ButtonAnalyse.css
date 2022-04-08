@@ -1,0 +1,30 @@
+
+.buttonAnalyse{
+    position: absolute;
+    bottom: 35px;
+    right: 20px;
+
+    height: 30px;
+    width: 70px;
+    background-color:#1D9BF0 ;
+
+    opacity:1; 
+    border-radius: 20px;
+    border: none;
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .buttonAnalyse {
+        right: 8vw;
+        height: 40px;
+        width: 90px;
+        border-radius: 30px;
+
+        font-size: 14px;
+
+    }
+  }
+
