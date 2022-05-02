@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { GeneralContext } from '../context/GeneralContext'
-import { fetchData } from '../services/fetch'
+import { helpHttp } from '../services/helpHttp'
 import { urls } from '../services/urls'
 import Tweet from './Tweets'
 import './TweetsContainer.css'
@@ -32,7 +32,7 @@ const TweetsContainer = () => {
             }
 
             setLoading(true)
-            const data = await fetchData(`${urls().tweets}/${user.id}/${time}`)
+            const data = await helpHttp().get(`${urls().tweets}/${user.id}/${time}`)
             console.log(data.tweets)
 
             if (data.error) {

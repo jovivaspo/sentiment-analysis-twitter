@@ -9,4 +9,7 @@ router.route('/search/:username')
 router.route('/tweets/:id/:time')
 .get(ctrUser.tweets)
 
+router.route('/tweets/analyse')
+.post(ctrUser.analyse)
+
 module.exports = router

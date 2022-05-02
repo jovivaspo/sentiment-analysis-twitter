@@ -19,7 +19,7 @@ function App() {
       </div>
       <Search />
       {user.username && <Username/> }
-      {tweets.length > 0 && <ButtonAnalyse/>}
+      {tweets.length > 0 && <ButtonAnalyse tweets={tweets}/>}
      {loading && <Spinner/>}
      <Alert/>
     </div>

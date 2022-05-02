@@ -1,5 +1,7 @@
 const client = require('../services/configTwitter')
 const calculateDate = require('../services/calculateDate')
+const analyse = require('../services/analyse')
+
 
 const ctrUser = {}
 
@@ -45,8 +47,7 @@ ctrUser.tweets = async (req, res, next) => {
           /*  if(tweetsUser.length >= 30){
                 break
             }*/
-            console.log(fetchTweetUser)
-
+           
             tweetsUser.push(fetchTweetUser.text)
 
         }
@@ -65,5 +66,17 @@ ctrUser.tweets = async (req, res, next) => {
     }
 }
 
-module.exports = ctrUser
+ctrUser.analyse = async (req,res,next) => {
+    try{
+        const {tweets} = req.body
+        console.log(tweets)
+        analyse(tweets[18])
 
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+
+module.exports = ctrUser

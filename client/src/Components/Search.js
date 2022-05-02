@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { GeneralContext } from '../context/GeneralContext'
 import { urls } from '../services/urls'
 import './Search.css'
-import { fetchData } from '../services/fetch'
+import { helpHttp } from '../services/helpHttp'
 
 const Search = () => {
     
@@ -16,7 +16,7 @@ const Search = () => {
             if(search === '') return false 
 
             setLoading(true)
-            const data = await fetchData(`${urls().search}/${search}`)
+            const data = await helpHttp().get(`${urls().search}/${search}`)
             console.log(data)
 
             if(data.error){
