@@ -1,32 +1,18 @@
 .App{
-  
-  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   overflow-x: hidden;
- 
 }
-.titleContainerApp{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.titleIcon{
-  font-size: 24px;
-  margin-left: 12px;
+
+.containerApp{
+  position: relative;
+  width: 100vw;
  
-}
-.titleApp{
- 
-  text-align: center;
-  font-size: 24px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  
 }
 
 @media only screen and (min-width: 600px) {
-  .App {
-    width: 75vw;
+  .containerApp {
+    max-width: 700px;
     margin: 0 auto;
   }
 }

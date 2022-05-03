@@ -1,8 +1,9 @@
 
 .buttonAnalyse{
-    position: absolute;
-    bottom: 35px;
-    right: 20px;
+    position: sticky;
+    bottom: 32px;
+    left: 80%;
+   
 
     height: 30px;
     width: 70px;
@@ -11,14 +12,15 @@
     opacity:1; 
     border-radius: 20px;
     border: none;
-    margin-left: 12px;
     font-weight: bold;
+
+    cursor: pointer;
 }
 
 
 @media only screen and (min-width: 600px) {
     .buttonAnalyse {
-        right: 8vw;
+        left: 90%;
         height: 40px;
         width: 90px;
         border-radius: 30px;
@@ -27,4 +29,3 @@
 
     }
   }
-

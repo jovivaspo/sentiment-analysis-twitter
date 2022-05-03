@@ -2,10 +2,17 @@
 import './Tweet.css'
 import { cutText } from '../services/cutText'
 
-const Tweet = ({tweet}) => {
+const category = {
+  'positive': '#13772a',
+  'neutral': '#1D9BF0',
+  'negative': '#771613'
+}
+const Tweet = ({ tweet }) => {
   return (
-    <div className='tweetContainer'>
-        <p className='textTweet'>{cutText(tweet)}</p>
+    <div className='tweetContainer' style={{
+      background: category[tweet.state]
+    }}>
+      <p className='textTweet'>{cutText(tweet.message)}</p>
     </div>
   )
 }

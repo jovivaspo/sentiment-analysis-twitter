@@ -20,10 +20,8 @@ export const helpHttp = () =>{
         options.body = JSON.stringify(options.body) || false
         if(!options.body) delete options.body
 
-        console.log(options.body)
+        
 
-        
-        
         /*Abortar la petición con el controller */
       /*  setTimeout(()=>{
             controller.abort()

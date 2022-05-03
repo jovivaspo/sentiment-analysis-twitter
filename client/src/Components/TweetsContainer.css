@@ -1,6 +1,6 @@
 .containerMainTweets{
     width: 85%;
-    margin-top: 24px;
+    margin-top: 8px;
 }
 
 .selectButtons{
@@ -27,9 +27,13 @@
 }
 
 .containerTweets{
-    max-height: 60vh;
-    overflow-y: scroll;
+    margin-top: 20px;
+    background-color:#16181C;
+    padding: 8px;
+    border-radius: 16px;
 }
+
+
 
 
 

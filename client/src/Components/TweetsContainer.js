@@ -28,7 +28,7 @@ const TweetsContainer = () => {
                 button30Ref.current.classList.add('buttonSelect')
                 button30Ref.current.innerText ='Último mes '
                 button7Ref.current.classList.remove('buttonSelect')
-                button7Ref.current.innerText ='Última mes'
+                button7Ref.current.innerText ='Última semana'
             }
 
             setLoading(true)

@@ -1,6 +1,7 @@
 
     .formContainer{
-        width:100%
+        width:100%;
+        margin-top: 8px;
     }
 
     .formSearch{
@@ -26,5 +27,6 @@
         border: none;
         margin-left: 12px;
         font-weight: bold;
+        cursor: pointer;
     }
 

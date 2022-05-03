@@ -48,7 +48,10 @@ ctrUser.tweets = async (req, res, next) => {
                 break
             }*/
            
-            tweetsUser.push(fetchTweetUser.text)
+            tweetsUser.push({
+                message:fetchTweetUser.text,
+                state:null
+            })
 
         }
 
@@ -69,12 +72,16 @@ ctrUser.tweets = async (req, res, next) => {
 ctrUser.analyse = async (req,res,next) => {
     try{
         const {tweets} = req.body
-        console.log(tweets)
-        analyse(tweets[18])
-
-
+        const results = analyse(tweets)
+        res.status(200).json({
+            tweets: results
+        })
+        
     }catch(err){
         console.log(err)
+        res.status(500)
+        const error = new Error('Error al analizar')
+        next(error)
     }
 }
 
