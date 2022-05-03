@@ -6,13 +6,13 @@ import { GeneralContext } from '../context/GeneralContext'
 
 
 const ButtonAnalyse = ({ tweets }) => {
-  const { setLoading, setAlert, setTweets } = useContext(GeneralContext)
+  const { setAlert, setTweets, loading, setLoading } = useContext(GeneralContext)
 
   const handleAnalyse = async () => {
     try {
+      setLoading(true)
       const copyTweets = tweets
       setTweets([])
-      setLoading(true)
       helpHttp().post(urls().analyse, {
         headers: {
           "Content-Type": "application/json",
@@ -22,6 +22,7 @@ const ButtonAnalyse = ({ tweets }) => {
         }
       })
         .then(res => {
+          console.log("Probando",loading)
           console.log(res)
           if (res.error) {
             setTweets(copyTweets)
@@ -43,9 +44,10 @@ const ButtonAnalyse = ({ tweets }) => {
     }
 
   }
+console.log(loading)
 
   return (
-    <button onClick={handleAnalyse} className='buttonAnalyse'>{tweets[0].state? 'Gráfico' : 'Analizar'}</button>
+    <button onClick={handleAnalyse} className='buttonAnalyse'>{tweets[0]?.state? 'Gráfico' : 'Analizar'}</button>
   )
 }
 

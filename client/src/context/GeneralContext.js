@@ -13,7 +13,7 @@ const GeneralProvider = ({children})=>{
         username:''
     })
     const [tweets,setTweets] = useState([])
-    const [analyse, setAnalyse] = useState(null)
+  
     const data = {loading, setLoading, alert, setAlert, user, setUser, tweets, setTweets}
 
     return (

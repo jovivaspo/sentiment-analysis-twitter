@@ -14,21 +14,21 @@ const TweetsContainer = () => {
 
     useEffect(() => {
         handlerLoadTweets()
-    }, [time,user])
+    }, [time, user])
 
     const handlerLoadTweets = async () => {
         try {
             setTweets([])
             if (time === '7') {
                 button7Ref.current.classList.add('buttonSelect')
-                button7Ref.current.innerText ='Última semana '
+                button7Ref.current.innerText = 'Última semana '
                 button30Ref.current.classList.remove('buttonSelect')
-                button30Ref.current.innerText ='Último mes'
+                button30Ref.current.innerText = 'Último mes'
             } else {
                 button30Ref.current.classList.add('buttonSelect')
-                button30Ref.current.innerText ='Último mes '
+                button30Ref.current.innerText = 'Último mes '
                 button7Ref.current.classList.remove('buttonSelect')
-                button7Ref.current.innerText ='Última semana'
+                button7Ref.current.innerText = 'Última semana'
             }
 
             setLoading(true)
@@ -50,11 +50,11 @@ const TweetsContainer = () => {
 
             setTweets(data.tweets)
             if (time === '7') {
-                button7Ref.current.innerText ='Última semana '+ `(${data.tweets.length})`
-                button30Ref.current.innerText ='Último mes'
+                button7Ref.current.innerText = 'Última semana ' + `(${data.tweets.length})`
+                button30Ref.current.innerText = 'Último mes'
             } else {
-                button30Ref.current.innerText ='Último mes '+ `(${data.tweets.length})`
-                button7Ref.current.innerText ='Última semana'
+                button30Ref.current.innerText = 'Último mes ' + `(${data.tweets.length})`
+                button7Ref.current.innerText = 'Última semana'
             }
 
         } catch (err) {
@@ -71,13 +71,13 @@ const TweetsContainer = () => {
                 <button ref={button7Ref} className='buttonTweets buttonSelect' onClick={() => setTime('7')}>Última semana</button>
                 <button ref={button30Ref} className='buttonTweets' onClick={() => setTime('30')}>Último mes</button>
             </div>
-            <div className='containerTweets'>
+            { tweets.length > 0  && <div className='containerTweets'>
                 {
-                    tweets?.map((tweet, id) => {
+                    tweets.map((tweet, id) => {
                         return <Tweet key={id} tweet={tweet} />
                     })
                 }
-            </div>
+            </div>}
 
         </div>
 

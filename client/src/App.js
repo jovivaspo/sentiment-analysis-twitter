@@ -10,15 +10,15 @@ import Header from './Components/Header';
 
 
 function App() {
-  const { loading, user, tweets } = useContext(GeneralContext)
-  console.log(loading)
+  const { loading, user, tweets} = useContext(GeneralContext)
+
   return (
     <div className="App">
       <div className="containerApp">
         <Header />
         <Search />
         {user.username && <Username />}
-        {tweets.length > 0 && !loading && <ButtonAnalyse tweets={tweets} />}
+        {!loading && tweets.length > 0 && <ButtonAnalyse tweets={tweets} />}
         {loading && <Spinner />}
         <Alert />
       </div>
