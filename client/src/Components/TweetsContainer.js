@@ -8,7 +8,7 @@ import './TweetsContainer.css'
 
 const TweetsContainer = () => {
     const [time, setTime] = useState('7')
-    const { user, setLoading, setAlert, setTweets, tweets } = useContext(GeneralContext)
+    const { user, setLoading, setAlert, setTweets, tweets, loading } = useContext(GeneralContext)
     const button7Ref = useRef()
     const button30Ref = useRef()
 
@@ -60,7 +60,6 @@ const TweetsContainer = () => {
         } catch (err) {
             console.log(err)
         } finally {
-
             setLoading(false)
         }
     }
@@ -68,8 +67,15 @@ const TweetsContainer = () => {
     return (
         <div className='containerMainTweets'>
             <div className='selectButtons'>
-                <button ref={button7Ref} className='buttonTweets buttonSelect' onClick={() => setTime('7')}>Última semana</button>
-                <button ref={button30Ref} className='buttonTweets' onClick={() => setTime('30')}>Último mes</button>
+                <button ref={button7Ref} className='buttonTweets buttonSelect'
+                 onClick={() => {
+                    if(loading) return false
+                    setTime('7')
+                }}>Última semana</button>
+                <button ref={button30Ref} className='buttonTweets' onClick={() =>{
+                      if(loading) return false
+                      setTime('30')
+                }}>Último mes</button>
             </div>
             { tweets.length > 0  && <div className='containerTweets'>
                 {

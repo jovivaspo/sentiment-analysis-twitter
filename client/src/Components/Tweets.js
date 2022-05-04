@@ -3,9 +3,9 @@ import './Tweet.css'
 import { cutText } from '../services/cutText'
 
 const category = {
-  'positive': '#13772a',
-  'neutral': '#1D9BF0',
-  'negative': '#771613'
+  'positive': '#48b348aa',
+  'neutral': '#1D9BF0aa',
+  'negative': '#C34A43aa'
 }
 const Tweet = ({ tweet }) => {
   return (

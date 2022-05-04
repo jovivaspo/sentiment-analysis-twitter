@@ -7,10 +7,12 @@ import Alert from './Components/Alert';
 import Username from './Components/Username';
 import ButtonAnalyse from './Components/ButtonAnalyse';
 import Header from './Components/Header';
+import ButtonGraph from './Components/ButtonGraph';
+import Graph from './Components/Graph';
 
 
 function App() {
-  const { loading, user, tweets} = useContext(GeneralContext)
+  const { loading, user, tweets } = useContext(GeneralContext)
 
   return (
     <div className="App">
@@ -18,12 +20,15 @@ function App() {
         <Header />
         <Search />
         {user.username && <Username />}
-        {!loading && tweets.length > 0 && <ButtonAnalyse tweets={tweets} />}
+        {tweets[0]?.state && <Graph/>}
+        {!loading && tweets.length > 0 && !tweets[0]?.state && <ButtonAnalyse/>}
+        {!loading && tweets.length > 0 &&  tweets[0]?.state && <ButtonGraph/>}
         {loading && <Spinner />}
         <Alert />
       </div>
     </div>
   )
 }
+
 
 export default App;
