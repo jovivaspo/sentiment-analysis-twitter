@@ -8,7 +8,7 @@ const Spinner = () => {
         <SpinnerCircular size={40}
         thickness={100}
         speed={100}
-        color="#1D9BF0 "
+        color="rgba(29, 155, 240, 1)"
         secondaryColor="rgba(128, 128, 128, 0.9)"
         className='spinner'
       />

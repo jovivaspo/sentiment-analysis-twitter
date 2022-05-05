@@ -1,8 +1,9 @@
 import React from 'react'
 import './ButtonGraph.css'
+
 const ButtonGraph = () => {
   return (
-    <button onClick={()=>{}} className='buttonGraph'>Gráfica</button>
+    <button className='buttonGraph'>Gráfica</button>
   )
 }
 

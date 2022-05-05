@@ -68,16 +68,16 @@ const TweetsContainer = () => {
         <div className='containerMainTweets'>
             <div className='selectButtons'>
                 <button ref={button7Ref} className='buttonTweets buttonSelect'
-                 onClick={() => {
-                    if(loading) return false
-                    setTime('7')
-                }}>Última semana</button>
-                <button ref={button30Ref} className='buttonTweets' onClick={() =>{
-                      if(loading) return false
-                      setTime('30')
+                    onClick={() => {
+                        if (loading) return false
+                        setTime('7')
+                    }}>Última semana</button>
+                <button ref={button30Ref} className='buttonTweets' onClick={() => {
+                    if (loading) return false
+                    setTime('30')
                 }}>Último mes</button>
             </div>
-            { tweets.length > 0  && <div className='containerTweets'>
+            {tweets.length > 0 && <div className='containerTweets'>
                 {
                     tweets.map((tweet, id) => {
                         return <Tweet key={id} tweet={tweet} />

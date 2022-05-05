@@ -1,6 +1,5 @@
 import './App.css';
 import Search from './Components/Search'
-import Spinner from './Components/Spinner';
 import { useContext } from 'react';
 import { GeneralContext } from './context/GeneralContext';
 import Alert from './Components/Alert';
@@ -8,7 +7,11 @@ import Username from './Components/Username';
 import ButtonAnalyse from './Components/ButtonAnalyse';
 import Header from './Components/Header';
 import ButtonGraph from './Components/ButtonGraph';
+import Spinner from './Components/Spinner';
 import Graph from './Components/Graph';
+
+
+
 
 
 function App() {
@@ -20,10 +23,10 @@ function App() {
         <Header />
         <Search />
         {user.username && <Username />}
-        {tweets[0]?.state && <Graph/>}
+        {tweets.length > 0 &&  tweets[0]?.state && <Graph/>}
         {!loading && tweets.length > 0 && !tweets[0]?.state && <ButtonAnalyse/>}
         {!loading && tweets.length > 0 &&  tweets[0]?.state && <ButtonGraph/>}
-        {loading && <Spinner />}
+        {loading && <Spinner/>}
         <Alert />
       </div>
     </div>
