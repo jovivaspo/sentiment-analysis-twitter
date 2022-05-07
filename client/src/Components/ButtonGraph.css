@@ -16,6 +16,11 @@
     font-weight: bold;
 
     cursor: pointer;
+
+    transition: opacity 0.4s linear}
+
+.hidden{
+   opacity: 0;
 }
 
 

@@ -1,9 +1,22 @@
-import React from 'react'
 import './ButtonGraph.css'
 
-const ButtonGraph = () => {
+const ButtonGraph = ({ isIntersecting, targetRef }) => {
+
+  console.log(targetRef)
+
+  const handleMove = () => {
+    targetRef.current.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
-    <button className='buttonGraph'>Gráfica</button>
+    <>
+      <button
+        className={!isIntersecting ? 'buttonGraph' : 'buttonGraph hidden'}
+        onClick={handleMove}>
+        Gráfica
+      </button>
+    </>
+
   )
 }
 

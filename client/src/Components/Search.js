@@ -17,7 +17,7 @@ const Search = () => {
 
             setLoading(true)
             const data = await helpHttp().get(`${urls().search}/${search}`)
-            console.log(data)
+           // console.log(data)
 
             if(data.error){
                setAlert({

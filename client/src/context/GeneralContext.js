@@ -13,8 +13,9 @@ const GeneralProvider = ({children})=>{
         username:''
     })
     const [tweets,setTweets] = useState([])
+
   
-    const data = {loading, setLoading, alert, setAlert, user, setUser, tweets, setTweets }
+    const data = { loading, setLoading, alert, setAlert, user, setUser, tweets, setTweets }
 
     return (
         <GeneralContext.Provider value={data}>{children}</GeneralContext.Provider>

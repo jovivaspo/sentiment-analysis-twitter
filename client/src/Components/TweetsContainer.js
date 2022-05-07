@@ -33,7 +33,7 @@ const TweetsContainer = () => {
 
             setLoading(true)
             const data = await helpHttp().get(`${urls().tweets}/${user.id}/${time}`)
-            console.log(data.tweets)
+            //console.log(data.tweets)
 
             if (data.error) {
                 setAlert({

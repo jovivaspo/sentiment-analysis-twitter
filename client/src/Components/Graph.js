@@ -14,6 +14,7 @@ import {
 import { Bar } from 'react-chartjs-2'
 import Spinner from './Spinner'
 
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -65,11 +66,11 @@ const colors = {
 
 
 const Graph = () => {
-  const { tweets } = useContext(GeneralContext)
+  const { tweets} = useContext(GeneralContext)
   const [dataset, setDataset] = useState(null)
 
   useEffect(() => {
-    console.log("Graficando", tweets, labels)
+    //console.log("Graficando", tweets, labels)
     let datasets = labels.map(label => {
       let numberTweets = 0
       tweets.forEach(({ state }) => {
@@ -91,7 +92,7 @@ const Graph = () => {
     })
   }, [])
 
-  console.log(dataset)
+  //console.log(dataset)
 
   return (
     <>
