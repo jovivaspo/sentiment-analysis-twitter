@@ -6,7 +6,7 @@ Currently, the application uses AFINN-based Sentiment Analysis in several langua
 
 Just enter the username of the account and the application will return the % of positive, negative and neutral tweets, as well as a graph of results.📊
 
-You can visit the applicatin here: https://sentiment-analysis-twitter-app.herokuapp.com/
+You can visit the application here: https://sentiment-analysis-twitter-app.herokuapp.com/
 
 ![image](https://user-images.githubusercontent.com/87134926/167301343-0ef7e8ff-180c-454f-a10b-c5015350734e.png)
 ![image](https://user-images.githubusercontent.com/87134926/167301380-2977b7e4-8aa6-4714-acec-f9c52371eb06.png)
