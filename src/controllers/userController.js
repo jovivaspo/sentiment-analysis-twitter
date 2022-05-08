@@ -9,7 +9,7 @@ ctrUser.search = async (req, res, next) => {
     try {
         const username = req.params.username
         const user = await client.v2.userByUsername(username, { 'user.fields': ['created_at', 'profile_image_url', 'public_metrics'] })
-        console.log(user)
+       // console.log(user)
         res.status(200).json({
             id: user.data.id,
             name: user.data.name,
@@ -55,7 +55,7 @@ ctrUser.tweets = async (req, res, next) => {
 
         }
 
-        console.log("Nº de tweets del usuario: ", tweetsUser.length)
+       // console.log("Nº de tweets del usuario: ", tweetsUser.length)
 
         res.status(200).json({
             tweets: tweetsUser

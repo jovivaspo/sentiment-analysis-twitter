@@ -10,6 +10,7 @@ import ButtonGraph from './Components/ButtonGraph';
 import Spinner from './Components/Spinner';
 import Graph from './Components/Graph';
 import { useObserver } from './Hooks/useObserver';
+import ResumeResults from './Components/ResumeResults';
 
 
 
@@ -28,7 +29,10 @@ function App() {
         <Search />
         {user.username && <Username />}
         {tweets.length > 0 && tweets[0]?.state &&
-          <div ref={targetRef}> <Graph /></div>
+          <div ref={targetRef}> 
+          <ResumeResults/>
+          <Graph />
+          </div>
         }
         {!loading && tweets.length > 0 && !tweets[0]?.state && <ButtonAnalyse />}
         {!loading && tweets.length > 0 && tweets[0]?.state && <ButtonGraph isIntersecting={isIntersecting} targetRef={targetRef}/>}

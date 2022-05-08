@@ -13,7 +13,7 @@ const analyse = (tweets) => {
                 '🥰':5
             }
         })
-        console.log(result)
+    
         return {message: tweet.message,
         state: result.category
         }

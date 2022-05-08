@@ -1,0 +1,24 @@
+.resumeResults{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 20px;
+}
+
+
+.resultContainer{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.tag{
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.message{
+    font-size: 14px;
+}

@@ -2,8 +2,6 @@ import './ButtonGraph.css'
 
 const ButtonGraph = ({ isIntersecting, targetRef }) => {
 
-  console.log(targetRef)
-
   const handleMove = () => {
     targetRef.current.scrollIntoView({ behavior: "smooth" })
   }
@@ -13,7 +11,7 @@ const ButtonGraph = ({ isIntersecting, targetRef }) => {
       <button
         className={!isIntersecting ? 'buttonGraph' : 'buttonGraph hidden'}
         onClick={handleMove}>
-        Gráfica
+        Resultados
       </button>
     </>
 

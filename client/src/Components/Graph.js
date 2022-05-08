@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
-import { GeneralContext } from '../context/GeneralContext'
+import { styleResults } from '../services/stylesResults'
 import './Graph.css'
+
 
 import {
   Chart as ChartJS,
@@ -13,6 +13,7 @@ import {
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import Spinner from './Spinner'
+import { useResults } from '../Hooks/useResults'
 
 
 ChartJS.register(
@@ -39,65 +40,42 @@ const options = {
     title: {
       display: true,
       text: 'Sentiment Analysis',
-      color:'#ffffffaa',
-      font:{
-        size:16
+      color: '#ffffffaa',
+      font: {
+        size: 16
       }
 
     },
   },
 }
 
-const labels = ["positive", "neutral", "negative"]
-const colors = {
-  ["positive"]: {
-    borderColor: '#36ad47',
-    backgroundColor: '#48b348aa',
-  },
-  ["neutral"]: {
-    borderColor: 'rgb(53, 162, 235)',
-    backgroundColor: 'rgba(53, 162, 235, 0.5)',
-  },
-  ["negative"]: {
-    borderColor: 'rgb(255, 99, 132)',
-    backgroundColor: 'rgba(255, 99, 132, 0.5)',
-  }
-}
+
 
 
 const Graph = () => {
-  const { tweets} = useContext(GeneralContext)
-  const [dataset, setDataset] = useState(null)
 
-  useEffect(() => {
-    //console.log("Graficando", tweets, labels)
-    let datasets = labels.map(label => {
-      let numberTweets = 0
-      tweets.forEach(({ state }) => {
-        if (state === label) numberTweets++
-      })
-      let data = [0, 0, 0]
-      let index = labels.indexOf(label)
-      data[index] = numberTweets
-      return {
-        label,
-        data,
-        borderColor: colors[label].borderColor,
-        backgroundColor: colors[label].backgroundColor
-      }
-    })
-    setDataset({
-      labels,
-      datasets
-    })
-  }, [])
-
-  //console.log(dataset)
+  const {results, labels} = useResults()
+  
 
   return (
     <>
       <div className='graphContainer'>
-        {!dataset ? <Spinner /> : <Bar options={options} data={dataset}  />}
+        {!results ?
+          <Spinner /> :
+          <Bar options={options} data={{
+            labels,
+            datasets: results.map(el => {
+              return (
+                {
+                  label: el.label,
+                  data: el.data,
+                  borderColor: styleResults()[el.label].borderColor,
+                  backgroundColor: styleResults()[el.label].backgroundColor
+                }
+              )
+            })
+          }} />
+        }
       </div>
 
 

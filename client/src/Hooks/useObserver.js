@@ -8,7 +8,7 @@ const useObserver = (targetRef, options) => {
       }, [options])
 
     useEffect(()=>{
-        console.log(targetRef)
+       
         const observer = new IntersectionObserver((entries)=>{
             const [entry] = entries
             setIsIntersecting(entry.isIntersecting)
